@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useCallback } from 'react';
 import Slide from '../components/Slide';
 import Navigation from '../components/Navigation';
@@ -128,27 +127,11 @@ const Index: React.FC = () => {
     }
   }, []);
 
-  const handleKeyNavigation = useCallback((e: KeyboardEvent) => {
-    if (e.key === 'ArrowLeft') {
-      handlePrevSlide();
-    } else if (e.key === 'ArrowRight' || e.key === ' ') {
-      handleNextSlide();
-    } else if (e.key === 'Escape' && isFullScreen) {
-      document.exitFullscreen();
-      setIsFullScreen(false);
-    }
-  }, [handlePrevSlide, handleNextSlide, isFullScreen]);
-
-  const handleDoubleClick = () => {
-    toggleFullScreen();
-  };
-
-  // Add touch swipe functionality for mobile
+  // Add touch swipe functionality
   useEffect(() => {
-    if (!isMobile) return;
-    
     let touchStartX = 0;
     let touchEndX = 0;
+    let lastTap = 0;
     
     const handleTouchStart = (e: TouchEvent) => {
       touchStartX = e.changedTouches[0].screenX;
@@ -156,16 +139,24 @@ const Index: React.FC = () => {
     
     const handleTouchEnd = (e: TouchEvent) => {
       touchEndX = e.changedTouches[0].screenX;
-      handleSwipe();
+      const currentTime = new Date().getTime();
+      const tapLength = currentTime - lastTap;
+      
+      // Double tap detection for fullscreen
+      if (tapLength < 300 && tapLength > 0) {
+        toggleFullScreen();
+        lastTap = 0;
+      } else {
+        lastTap = currentTime;
+        handleSwipe();
+      }
     };
     
     const handleSwipe = () => {
       const swipeThreshold = 50;
-      // Left swipe (next slide)
       if (touchEndX + swipeThreshold < touchStartX) {
         handleNextSlide();
       }
-      // Right swipe (previous slide)
       if (touchEndX > touchStartX + swipeThreshold) {
         handlePrevSlide();
       }
@@ -178,14 +169,26 @@ const Index: React.FC = () => {
       document.removeEventListener('touchstart', handleTouchStart);
       document.removeEventListener('touchend', handleTouchEnd);
     };
-  }, [isMobile, handleNextSlide, handlePrevSlide]);
+  }, [handleNextSlide, handlePrevSlide, toggleFullScreen]);
 
+  // Handle keyboard navigation and fullscreen
   useEffect(() => {
+    const handleKeyNavigation = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowLeft') {
+        handlePrevSlide();
+      } else if (e.key === 'ArrowRight' || e.key === ' ') {
+        handleNextSlide();
+      } else if (e.key === 'Escape' && isFullScreen) {
+        document.exitFullscreen();
+        setIsFullScreen(false);
+      }
+    };
+
     window.addEventListener('keydown', handleKeyNavigation);
     return () => {
       window.removeEventListener('keydown', handleKeyNavigation);
     };
-  }, [handleKeyNavigation]);
+  }, [handlePrevSlide, handleNextSlide, isFullScreen]);
 
   // Listen for fullscreen changes
   useEffect(() => {
@@ -203,7 +206,7 @@ const Index: React.FC = () => {
   return (
     <div 
       className="relative min-h-screen overflow-hidden bg-oldmoney-parchment"
-      onDoubleClick={handleDoubleClick}
+      onDoubleClick={toggleFullScreen}
     >
       {!isFullScreen && <Header />}
       
@@ -211,17 +214,9 @@ const Index: React.FC = () => {
         {slides.map((slide, index) => (
           <Slide
             key={slide.id}
-            id={slide.id}
-            number={slide.number}
-            title={slide.title}
-            description={slide.description}
-            question={slide.question}
-            answer={slide.answer}
-            imageSrc={slide.imageSrc}
-            imageAlt={slide.imageAlt}
+            {...slide}
             isActive={currentSlide === index}
             className="bg-oldmoney-parchment"
-            imagePosition={slide.imagePosition}
           />
         ))}
       </main>
