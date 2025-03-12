@@ -21,7 +21,7 @@ const Index: React.FC = () => {
       answer: "La agricultura, la religión y la comunidad eran los tres pilares fundamentales que estructuraban la vida cotidiana durante la Edad Media.",
       imageSrc: "https://images.unsplash.com/photo-1504893524553-b855bce32c67",
       imageAlt: "Paisaje medieval con castillo",
-      imagePosition: "right"
+      imagePosition: "right" as "right"
     },
     {
       id: "slide-2",
@@ -32,7 +32,7 @@ const Index: React.FC = () => {
       answer: "A cambio de las tierras (feudos), los señores recibían lealtad, servicio militar y otros tributos de sus vasallos, creando un sistema de obligaciones mutuas.",
       imageSrc: "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
       imageAlt: "Campiña medieval",
-      imagePosition: "left"
+      imagePosition: "left" as "left"
     },
     {
       id: "slide-3",
@@ -43,7 +43,7 @@ const Index: React.FC = () => {
       answer: "Además de la guerra, los caballeros participaban en torneos, protegían a sus señores, administraban tierras y seguían el código de caballería que enfatizaba el honor y la lealtad.",
       imageSrc: "https://images.unsplash.com/photo-1485833077593-4278bba3f11f",
       imageAlt: "Camino del bosque medieval",
-      imagePosition: "center"
+      imagePosition: "center" as "center"
     },
     {
       id: "slide-4",
@@ -54,7 +54,7 @@ const Index: React.FC = () => {
       answer: "Los monasterios preservaban el conocimiento a través de manuscritos, proporcionaban educación, atendían a los enfermos, ofrecían hospedaje a viajeros y mantenían viva la cultura clásica durante la Edad Media.",
       imageSrc: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07",
       imageAlt: "Edificio de iglesia medieval",
-      imagePosition: "right"
+      imagePosition: "right" as "right"
     },
     {
       id: "slide-5",
@@ -65,7 +65,7 @@ const Index: React.FC = () => {
       answer: "La Liga Hanseática, una alianza de ciudades mercantiles, facilitó el comercio internacional, estableció rutas comerciales seguras, estandarizó prácticas comerciales y aumentó la prosperidad de las ciudades miembros.",
       imageSrc: "https://images.unsplash.com/photo-1482938289607-e9573fc25ebb",
       imageAlt: "Mercado medieval",
-      imagePosition: "left"
+      imagePosition: "left" as "left"
     },
     {
       id: "slide-6",
@@ -76,7 +76,7 @@ const Index: React.FC = () => {
       answer: "Las primeras universidades medievales se enfocaban principalmente en el derecho, la medicina y la teología, conocidas como las tres profesiones originales o facultades superiores.",
       imageSrc: "https://images.unsplash.com/photo-1452378174528-3090a4bba7b2",
       imageAlt: "Manuscrito medieval",
-      imagePosition: "center"
+      imagePosition: "center" as "center"
     },
     {
       id: "slide-7",
@@ -87,7 +87,7 @@ const Index: React.FC = () => {
       answer: "Los arbotantes, los arcos apuntados y las bóvedas de crucería fueron innovaciones clave que permitieron construir catedrales góticas más altas, con muros más delgados y grandes ventanales para los vitrales.",
       imageSrc: "https://images.unsplash.com/photo-1472396961693-142e6e269027",
       imageAlt: "Arquitectura medieval",
-      imagePosition: "right"
+      imagePosition: "right" as "right"
     },
     {
       id: "slide-8",
@@ -98,7 +98,7 @@ const Index: React.FC = () => {
       answer: "La imprenta de Gutenberg revolucionó la difusión del conocimiento al hacer los libros más accesibles, fomentó la alfabetización, aceleró la Reforma Protestante y sentó las bases para la era de la información moderna.",
       imageSrc: "https://images.unsplash.com/photo-1469041797191-50ace28483c3",
       imageAlt: "Transición medieval",
-      imagePosition: "left"
+      imagePosition: "left" as "left"
     }
   ];
 
