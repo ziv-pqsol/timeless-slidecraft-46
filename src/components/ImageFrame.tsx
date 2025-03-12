@@ -15,16 +15,17 @@ const ImageFrame: React.FC<ImageFrameProps> = ({ src, alt, className }) => {
     <div className={cn("image-frame relative overflow-hidden rounded-sm", className)}>
       <div 
         className={cn(
-          "absolute inset-0 bg-oldmoney-cream animate-pulse", 
-          isLoaded && "opacity-0 transition-opacity duration-700"
+          "absolute inset-0 bg-oldmoney-cream", 
+          isLoaded && "opacity-0 transition-opacity duration-300"
         )}
       />
       <img 
         src={src} 
         alt={alt} 
         className={cn(
-          "w-full h-full object-cover transition-opacity duration-700",
-          !isLoaded && "opacity-0"
+          "w-full h-full object-cover",
+          !isLoaded && "opacity-0",
+          isLoaded && "transition-opacity duration-300"
         )}
         onLoad={() => setIsLoaded(true)}
       />
