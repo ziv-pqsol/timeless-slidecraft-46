@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
@@ -55,7 +54,7 @@
   }
 
   body {
-    @apply bg-oldmoney-cream text-oldmoney-navy font-montserrat antialiased;
+    @apply bg-oldmoney-parchment text-oldmoney-brown font-montserrat antialiased;
     background-image: url('/paper-texture.png');
     background-blend-mode: overlay;
     background-size: 400px;
@@ -72,39 +71,23 @@
   }
 
   .slide-content {
-    @apply max-w-4xl mx-auto w-full flex flex-col items-center;
-  }
-
-  .slide-number {
-    @apply text-oldmoney-gold font-montserrat text-sm tracking-wider mb-2;
-  }
-
-  .slide-title {
-    @apply text-oldmoney-navy font-playfair text-4xl md:text-5xl lg:text-6xl font-bold mb-8 tracking-tight;
-  }
-
-  .slide-subtitle {
-    @apply text-oldmoney-green font-playfair text-xl md:text-2xl font-medium mb-6 tracking-tight;
-  }
-
-  .slide-description {
-    @apply text-oldmoney-navy/90 font-montserrat text-base md:text-lg leading-relaxed mb-8 max-w-2xl text-center;
+    @apply max-w-4xl mx-auto w-full;
   }
 
   .navigation-dot {
-    @apply w-2.5 h-2.5 rounded-full border border-oldmoney-navy/30 transition-all duration-300 mx-1;
+    @apply w-2.5 h-2.5 rounded-full border border-oldmoney-brown/30 transition-all duration-300 mx-1;
   }
 
   .navigation-dot.active {
-    @apply bg-oldmoney-gold border-oldmoney-gold;
+    @apply bg-oldmoney-brown border-oldmoney-brown;
   }
 
   .navigation-arrow {
-    @apply w-10 h-10 flex items-center justify-center rounded-full bg-oldmoney-cream bg-opacity-80 backdrop-blur-sm border border-oldmoney-navy/10 text-oldmoney-navy transition-all duration-300 hover:bg-oldmoney-gold hover:text-oldmoney-cream;
+    @apply w-10 h-10 flex items-center justify-center rounded-full bg-oldmoney-cream bg-opacity-80 backdrop-blur-sm border border-oldmoney-brown/10 text-oldmoney-brown transition-all duration-300 hover:bg-oldmoney-gold hover:text-oldmoney-cream;
   }
 
   .image-frame {
-    @apply border-4 border-oldmoney-gold/30 shadow-lg overflow-hidden;
+    @apply border-4 border-oldmoney-brown/30 shadow-lg overflow-hidden;
   }
 }
 

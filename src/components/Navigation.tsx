@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Maximize2, Minimize2 } from 'lucide-react';
 
 interface NavigationProps {
   totalSlides: number;
@@ -8,6 +8,7 @@ interface NavigationProps {
   onPrevSlide: () => void;
   onNextSlide: () => void;
   onDotClick: (index: number) => void;
+  isFullScreen?: boolean;
 }
 
 const Navigation: React.FC<NavigationProps> = ({
@@ -15,11 +16,24 @@ const Navigation: React.FC<NavigationProps> = ({
   currentSlide,
   onPrevSlide,
   onNextSlide,
-  onDotClick
+  onDotClick,
+  isFullScreen = false
 }) => {
+  const toggleFullScreen = () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch(err => {
+        console.log(`Error attempting to enable full-screen mode: ${err.message}`);
+      });
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+      }
+    }
+  };
+
   return (
     <div className="fixed bottom-8 left-0 right-0 z-50 flex justify-center items-center">
-      <div className="flex items-center space-x-4 px-6 py-3 bg-oldmoney-cream/80 backdrop-blur-sm rounded-full border border-oldmoney-gold/20 shadow-md">
+      <div className="flex items-center space-x-4 px-6 py-3 bg-oldmoney-cream/80 backdrop-blur-sm rounded-full border border-oldmoney-brown/20 shadow-md">
         <button 
           onClick={onPrevSlide}
           className="navigation-arrow"
@@ -47,6 +61,14 @@ const Navigation: React.FC<NavigationProps> = ({
           disabled={currentSlide === totalSlides - 1}
         >
           <ChevronRight className="w-5 h-5" />
+        </button>
+
+        <button
+          onClick={toggleFullScreen}
+          className="w-10 h-10 flex items-center justify-center rounded-full bg-oldmoney-cream bg-opacity-80 backdrop-blur-sm border border-oldmoney-brown/10 text-oldmoney-brown transition-all duration-300 hover:bg-oldmoney-gold hover:text-oldmoney-cream ml-2"
+          aria-label={isFullScreen ? "Exit fullscreen" : "Enter fullscreen"}
+        >
+          {isFullScreen ? <Minimize2 className="w-5 h-5" /> : <Maximize2 className="w-5 h-5" />}
         </button>
       </div>
     </div>

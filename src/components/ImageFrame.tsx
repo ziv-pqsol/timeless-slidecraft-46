@@ -12,7 +12,7 @@ const ImageFrame: React.FC<ImageFrameProps> = ({ src, alt, className }) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   return (
-    <div className={cn("image-frame relative", className)}>
+    <div className={cn("image-frame relative overflow-hidden rounded-sm", className)}>
       <div 
         className={cn(
           "absolute inset-0 bg-oldmoney-cream animate-pulse", 

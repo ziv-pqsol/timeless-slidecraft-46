@@ -1,15 +1,16 @@
 
 import React from 'react';
 import { cn } from '../lib/utils';
+import ImageFrame from './ImageFrame';
 
 interface SlideProps {
   id: string;
   number: number;
   title: string;
-  subtitle?: string;
   description?: string;
+  imageSrc: string;
+  imageAlt: string;
   className?: string;
-  children?: React.ReactNode;
   isActive: boolean;
 }
 
@@ -17,10 +18,10 @@ const Slide: React.FC<SlideProps> = ({
   id,
   number,
   title,
-  subtitle,
   description,
+  imageSrc,
+  imageAlt,
   className,
-  children,
   isActive
 }) => {
   return (
@@ -32,14 +33,25 @@ const Slide: React.FC<SlideProps> = ({
         className
       )}
     >
-      <div className="slide-content">
-        <div className="slide-number">
+      <div className="slide-content flex flex-col items-center">
+        <div className="slide-number text-oldmoney-gold font-montserrat text-sm tracking-wider mb-2">
           {number < 10 ? `0${number}` : number}
         </div>
-        <h2 className="slide-title">{title}</h2>
-        {subtitle && <h3 className="slide-subtitle">{subtitle}</h3>}
-        {description && <p className="slide-description">{description}</p>}
-        {children}
+        <h2 className="slide-title text-oldmoney-brown font-playfair text-4xl md:text-5xl mb-8 text-center">
+          {title}
+        </h2>
+        <div className="w-full max-w-3xl mb-8">
+          <ImageFrame 
+            src={imageSrc} 
+            alt={imageAlt} 
+            className="w-full h-64 md:h-80"
+          />
+        </div>
+        {description && (
+          <p className="slide-description text-oldmoney-brown/90 font-montserrat text-base md:text-lg leading-relaxed max-w-2xl text-center">
+            {description}
+          </p>
+        )}
       </div>
     </section>
   );
