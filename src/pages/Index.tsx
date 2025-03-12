@@ -15,66 +15,90 @@ const Index: React.FC = () => {
     {
       id: "slide-1",
       number: 1,
-      title: "Life in the Middle Ages",
-      description: "During the Middle Ages (5th to 15th century), most people lived in small villages, working as farmers under the feudal system. Daily life revolved around agriculture, religion, and community.",
+      title: "La Vida en la Edad Media",
+      description: "Durante la Edad Media (siglos V al XV), la mayoría de las personas vivían en pequeñas aldeas, trabajando como agricultores bajo el sistema feudal.",
+      question: "¿Cuáles eran los tres pilares más importantes de la vida diaria en la Edad Media?",
+      answer: "La agricultura, la religión y la comunidad eran los tres pilares fundamentales que estructuraban la vida cotidiana durante la Edad Media.",
       imageSrc: "https://images.unsplash.com/photo-1504893524553-b855bce32c67",
-      imageAlt: "Medieval landscape with castle"
+      imageAlt: "Paisaje medieval con castillo",
+      imagePosition: "right"
     },
     {
       id: "slide-2",
       number: 2,
-      title: "Feudal System",
-      description: "The feudal system organized society into a hierarchy with the king at the top, followed by nobles, knights, and peasants. Lords provided land (fiefs) to vassals in exchange for loyalty and military service.",
+      title: "El Sistema Feudal",
+      description: "El sistema feudal organizaba la sociedad en una jerarquía con el rey en la cima, seguido por nobles, caballeros y campesinos.",
+      question: "¿Qué recibían los señores a cambio de proporcionar tierras a sus vasallos?",
+      answer: "A cambio de las tierras (feudos), los señores recibían lealtad, servicio militar y otros tributos de sus vasallos, creando un sistema de obligaciones mutuas.",
       imageSrc: "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
-      imageAlt: "Medieval countryside"
+      imageAlt: "Campiña medieval",
+      imagePosition: "left"
     },
     {
       id: "slide-3",
       number: 3,
-      title: "Knights & Warfare",
-      description: "Knights were mounted warriors who followed a code of chivalry. They wore heavy armor, wielded swords and lances, and participated in tournaments. Castles provided defense against enemies.",
+      title: "Caballeros y Guerra",
+      description: "Los caballeros eran guerreros montados que seguían un código de caballería y usaban armaduras pesadas en batalla.",
+      question: "¿Qué actividades realizaban los caballeros además de participar en batallas?",
+      answer: "Además de la guerra, los caballeros participaban en torneos, protegían a sus señores, administraban tierras y seguían el código de caballería que enfatizaba el honor y la lealtad.",
       imageSrc: "https://images.unsplash.com/photo-1485833077593-4278bba3f11f",
-      imageAlt: "Medieval forest path"
+      imageAlt: "Camino del bosque medieval",
+      imagePosition: "center"
     },
     {
       id: "slide-4",
       number: 4,
-      title: "Religion & the Church",
-      description: "The Catholic Church was the dominant religious authority in medieval Europe. Monasteries preserved knowledge and provided education, while cathedrals and churches were centers of community life.",
+      title: "Religión e Iglesia",
+      description: "La Iglesia Católica era la autoridad religiosa dominante en la Europa medieval y tenía gran influencia en todos los aspectos de la vida.",
+      question: "¿Qué papel desempeñaban los monasterios en la sociedad medieval?",
+      answer: "Los monasterios preservaban el conocimiento a través de manuscritos, proporcionaban educación, atendían a los enfermos, ofrecían hospedaje a viajeros y mantenían viva la cultura clásica durante la Edad Media.",
       imageSrc: "https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07",
-      imageAlt: "Medieval church building"
+      imageAlt: "Edificio de iglesia medieval",
+      imagePosition: "right"
     },
     {
       id: "slide-5",
       number: 5,
-      title: "Medieval Towns & Trade",
-      description: "Towns grew around castles, monasteries, and trade routes. Guilds regulated crafts and trades, while merchants traveled to fairs and markets. The Hanseatic League facilitated international trade.",
+      title: "Ciudades y Comercio",
+      description: "Las ciudades crecieron alrededor de castillos, monasterios y rutas comerciales, mientras que los gremios regulaban los oficios.",
+      question: "¿Cómo afectó la Liga Hanseática al comercio medieval europeo?",
+      answer: "La Liga Hanseática, una alianza de ciudades mercantiles, facilitó el comercio internacional, estableció rutas comerciales seguras, estandarizó prácticas comerciales y aumentó la prosperidad de las ciudades miembros.",
       imageSrc: "https://images.unsplash.com/photo-1482938289607-e9573fc25ebb",
-      imageAlt: "Medieval market"
+      imageAlt: "Mercado medieval",
+      imagePosition: "left"
     },
     {
       id: "slide-6",
       number: 6,
-      title: "Education & Learning",
-      description: "Education was primarily available through the Church. Universities emerged in the 12th century, teaching law, medicine, and theology. Most knowledge was preserved in hand-copied manuscripts.",
+      title: "Educación y Conocimiento",
+      description: "La educación estaba principalmente disponible a través de la Iglesia, y las universidades surgieron en el siglo XII.",
+      question: "¿Qué áreas de estudio eran las principales en las primeras universidades medievales?",
+      answer: "Las primeras universidades medievales se enfocaban principalmente en el derecho, la medicina y la teología, conocidas como las tres profesiones originales o facultades superiores.",
       imageSrc: "https://images.unsplash.com/photo-1452378174528-3090a4bba7b2",
-      imageAlt: "Medieval manuscript"
+      imageAlt: "Manuscrito medieval",
+      imagePosition: "center"
     },
     {
       id: "slide-7",
       number: 7,
-      title: "Art & Architecture",
-      description: "Romanesque and Gothic styles dominated medieval architecture, with impressive cathedrals featuring stained glass, flying buttresses, and pointed arches. Illuminated manuscripts showcased detailed artistry.",
+      title: "Arte y Arquitectura",
+      description: "Los estilos románico y gótico dominaron la arquitectura medieval, con impresionantes catedrales que mostraban la devoción religiosa.",
+      question: "¿Qué innovaciones arquitectónicas permitieron construir catedrales góticas más altas y con más ventanas?",
+      answer: "Los arbotantes, los arcos apuntados y las bóvedas de crucería fueron innovaciones clave que permitieron construir catedrales góticas más altas, con muros más delgados y grandes ventanales para los vitrales.",
       imageSrc: "https://images.unsplash.com/photo-1472396961693-142e6e269027",
-      imageAlt: "Medieval architecture"
+      imageAlt: "Arquitectura medieval",
+      imagePosition: "right"
     },
     {
       id: "slide-8",
       number: 8,
-      title: "The End of the Middle Ages",
-      description: "The Middle Ages ended with events like the Black Death, the Hundred Years' War, the Renaissance, and the invention of the printing press. These changes paved the way for the Early Modern Period.",
+      title: "El Fin de la Edad Media",
+      description: "La Edad Media terminó con eventos como la Peste Negra, la Guerra de los Cien Años, el Renacimiento y la invención de la imprenta.",
+      question: "¿Cómo cambió la invención de la imprenta de Gutenberg a la sociedad europea?",
+      answer: "La imprenta de Gutenberg revolucionó la difusión del conocimiento al hacer los libros más accesibles, fomentó la alfabetización, aceleró la Reforma Protestante y sentó las bases para la era de la información moderna.",
       imageSrc: "https://images.unsplash.com/photo-1469041797191-50ace28483c3",
-      imageAlt: "Medieval transition"
+      imageAlt: "Transición medieval",
+      imagePosition: "left"
     }
   ];
 
@@ -191,10 +215,13 @@ const Index: React.FC = () => {
             number={slide.number}
             title={slide.title}
             description={slide.description}
+            question={slide.question}
+            answer={slide.answer}
             imageSrc={slide.imageSrc}
             imageAlt={slide.imageAlt}
             isActive={currentSlide === index}
             className="bg-oldmoney-parchment"
+            imagePosition={slide.imagePosition}
           />
         ))}
       </main>
