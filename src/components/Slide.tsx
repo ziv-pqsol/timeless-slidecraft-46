@@ -2,6 +2,7 @@
 import React from 'react';
 import { cn } from '../lib/utils';
 import ImageFrame from './ImageFrame';
+import { useIsMobile } from '../hooks/use-mobile';
 
 interface SlideProps {
   id: string;
@@ -24,6 +25,8 @@ const Slide: React.FC<SlideProps> = ({
   className,
   isActive
 }) => {
+  const isMobile = useIsMobile();
+
   return (
     <section
       id={id}
@@ -37,18 +40,18 @@ const Slide: React.FC<SlideProps> = ({
         <div className="slide-number text-oldmoney-gold font-montserrat text-sm tracking-wider mb-2">
           {number < 10 ? `0${number}` : number}
         </div>
-        <h2 className="slide-title text-oldmoney-brown font-playfair text-4xl md:text-5xl mb-8 text-center">
+        <h2 className="slide-title text-oldmoney-brown font-playfair text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4 md:mb-8 text-center px-4">
           {title}
         </h2>
-        <div className="w-full max-w-3xl mb-8">
+        <div className="w-full max-w-3xl px-4 mb-4 md:mb-8">
           <ImageFrame 
             src={imageSrc} 
             alt={imageAlt} 
-            className="w-full h-64 md:h-80"
+            className="w-full h-44 sm:h-56 md:h-72 lg:h-80"
           />
         </div>
         {description && (
-          <p className="slide-description text-oldmoney-brown/90 font-montserrat text-base md:text-lg leading-relaxed max-w-2xl text-center">
+          <p className="slide-description text-oldmoney-brown/90 font-montserrat text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl text-center px-4 pb-16 md:pb-0">
             {description}
           </p>
         )}

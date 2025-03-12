@@ -3,10 +3,12 @@ import React, { useState, useEffect, useCallback } from 'react';
 import Slide from '../components/Slide';
 import Navigation from '../components/Navigation';
 import Header from '../components/Header';
+import { useIsMobile } from '../hooks/use-mobile';
 
 const Index: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isFullScreen, setIsFullScreen] = useState(false);
+  const isMobile = useIsMobile();
   const totalSlides = 8;
 
   const slides = [
@@ -117,12 +119,62 @@ const Index: React.FC = () => {
     toggleFullScreen();
   };
 
+  // Add touch swipe functionality for mobile
+  useEffect(() => {
+    if (!isMobile) return;
+    
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    const handleTouchStart = (e: TouchEvent) => {
+      touchStartX = e.changedTouches[0].screenX;
+    };
+    
+    const handleTouchEnd = (e: TouchEvent) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    };
+    
+    const handleSwipe = () => {
+      const swipeThreshold = 50;
+      // Left swipe (next slide)
+      if (touchEndX + swipeThreshold < touchStartX) {
+        handleNextSlide();
+      }
+      // Right swipe (previous slide)
+      if (touchEndX > touchStartX + swipeThreshold) {
+        handlePrevSlide();
+      }
+    };
+    
+    document.addEventListener('touchstart', handleTouchStart);
+    document.addEventListener('touchend', handleTouchEnd);
+    
+    return () => {
+      document.removeEventListener('touchstart', handleTouchStart);
+      document.removeEventListener('touchend', handleTouchEnd);
+    };
+  }, [isMobile, handleNextSlide, handlePrevSlide]);
+
   useEffect(() => {
     window.addEventListener('keydown', handleKeyNavigation);
     return () => {
       window.removeEventListener('keydown', handleKeyNavigation);
     };
   }, [handleKeyNavigation]);
+
+  // Listen for fullscreen changes
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setIsFullScreen(!!document.fullscreenElement);
+    };
+    
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    
+    return () => {
+      document.removeEventListener('fullscreenchange', handleFullscreenChange);
+    };
+  }, []);
 
   return (
     <div 
