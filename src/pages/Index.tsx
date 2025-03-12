@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useCallback } from 'react';
 import Slide from '../components/Slide';
 import Navigation from '../components/Navigation';
@@ -8,9 +9,19 @@ const Index: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isFullScreen, setIsFullScreen] = useState(false);
   const isMobile = useIsMobile();
-  const totalSlides = 8;
+  const totalSlides = 9; // Updated to include welcome slide
 
   const slides = [
+    {
+      id: "welcome-slide",
+      number: 0,
+      title: "Bienvenidos a La Edad Media",
+      description: "Presentación por Ziv y Diego\ndel Colegio Pequeño Sol",
+      imageSrc: "https://images.unsplash.com/photo-1496568816309-51d7c20e3b21",
+      imageAlt: "Castillo medieval en distancia",
+      imagePosition: "center" as "center",
+      isWelcome: true
+    },
     {
       id: "slide-1",
       number: 1,

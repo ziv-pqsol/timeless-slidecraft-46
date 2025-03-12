@@ -16,6 +16,7 @@ interface SlideProps {
   className?: string;
   isActive: boolean;
   imagePosition?: 'left' | 'right' | 'center';
+  isWelcome?: boolean;
 }
 
 const Slide: React.FC<SlideProps> = ({
@@ -29,10 +30,46 @@ const Slide: React.FC<SlideProps> = ({
   imageAlt,
   className,
   isActive,
-  imagePosition = 'center'
+  imagePosition = 'center',
+  isWelcome = false
 }) => {
   const isMobile = useIsMobile();
 
+  // Special rendering for welcome slide
+  if (isWelcome) {
+    return (
+      <section
+        id={id}
+        className={cn(
+          "slide absolute inset-0 opacity-0 pointer-events-none",
+          isActive && "opacity-100 pointer-events-auto animate-fade-in",
+          className
+        )}
+      >
+        <div className="slide-content flex flex-col items-center justify-center h-full">
+          <div className="w-full max-w-3xl mx-auto px-4 text-center">
+            <ImageFrame 
+              src={imageSrc} 
+              alt={imageAlt} 
+              className="w-full h-56 sm:h-64 md:h-72 lg:h-80 mb-8 mx-auto"
+            />
+            
+            <h1 className="slide-title text-oldmoney-brown font-playfair text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-6 text-center">
+              {title}
+            </h1>
+            
+            {description && (
+              <p className="font-montserrat text-oldmoney-brown/90 text-lg sm:text-xl md:text-2xl mb-4 whitespace-pre-line">
+                {description}
+              </p>
+            )}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // Regular slide rendering
   return (
     <section
       id={id}
