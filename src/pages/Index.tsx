@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useCallback } from 'react';
 import Slide from '../components/Slide';
 import Navigation from '../components/Navigation';
@@ -9,7 +8,7 @@ const Index: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isFullScreen, setIsFullScreen] = useState(false);
   const isMobile = useIsMobile();
-  const totalSlides = 9; // Updated to include welcome slide
+  const totalSlides = 10; // Updated to include welcome slide and thank you slide
 
   const slides = [
     {
@@ -109,6 +108,16 @@ const Index: React.FC = () => {
       imageSrc: "https://images.unsplash.com/photo-1469041797191-50ace28483c3",
       imageAlt: "Transición medieval",
       imagePosition: "left" as "left"
+    },
+    {
+      id: "thank-you-slide",
+      number: 9,
+      title: "¡Gracias por su atención!",
+      description: "Muchas gracias por escuchar nuestra presentación sobre la Edad Media.",
+      imageSrc: "https://images.unsplash.com/photo-1515260268569-9271009adfdb",
+      imageAlt: "Castillo medieval al atardecer",
+      imagePosition: "center" as "center",
+      isThankYou: true
     }
   ];
 

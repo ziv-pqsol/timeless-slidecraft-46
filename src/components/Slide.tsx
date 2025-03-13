@@ -17,6 +17,7 @@ interface SlideProps {
   isActive: boolean;
   imagePosition?: 'left' | 'right' | 'center';
   isWelcome?: boolean;
+  isThankYou?: boolean;
 }
 
 const Slide: React.FC<SlideProps> = ({
@@ -31,7 +32,8 @@ const Slide: React.FC<SlideProps> = ({
   className,
   isActive,
   imagePosition = 'center',
-  isWelcome = false
+  isWelcome = false,
+  isThankYou = false
 }) => {
   const isMobile = useIsMobile();
 
@@ -63,6 +65,46 @@ const Slide: React.FC<SlideProps> = ({
                 {description}
               </p>
             )}
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // Special rendering for thank you slide
+  if (isThankYou) {
+    return (
+      <section
+        id={id}
+        className={cn(
+          "slide absolute inset-0 opacity-0 pointer-events-none",
+          isActive && "opacity-100 pointer-events-auto animate-fade-in",
+          className
+        )}
+      >
+        <div className="slide-content flex flex-col items-center justify-center h-full">
+          <div className="w-full max-w-3xl mx-auto px-4 text-center">
+            <ImageFrame 
+              src={imageSrc} 
+              alt={imageAlt} 
+              className="w-full h-56 sm:h-64 md:h-72 lg:h-80 mb-8 mx-auto rounded-lg shadow-lg"
+            />
+            
+            <h1 className="slide-title text-oldmoney-gold font-playfair text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-8 text-center italic">
+              {title}
+            </h1>
+            
+            {description && (
+              <p className="font-montserrat text-oldmoney-brown/90 text-lg sm:text-xl md:text-2xl mb-6 whitespace-pre-line">
+                {description}
+              </p>
+            )}
+            
+            <div className="mt-8 border-t border-oldmoney-gold/30 pt-6">
+              <p className="font-playfair text-oldmoney-brown/80 text-xl italic">
+                Ziv y Diego, Colegio Pequeño Sol
+              </p>
+            </div>
           </div>
         </div>
       </section>
