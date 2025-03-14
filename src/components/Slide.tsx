@@ -48,7 +48,7 @@ const Slide: React.FC<SlideProps> = ({
           className
         )}
       >
-        <div className="slide-content flex flex-col items-center justify-center h-full">
+        <div className="slide-content flex flex-col items-center justify-center h-full bg-transparent">
           <div className="w-full max-w-3xl mx-auto px-4 text-center">
             <ImageFrame 
               src={imageSrc} 
@@ -82,7 +82,7 @@ const Slide: React.FC<SlideProps> = ({
           className
         )}
       >
-        <div className="slide-content flex flex-col items-center justify-center h-full">
+        <div className="slide-content flex flex-col items-center justify-center h-full bg-transparent">
           <div className="w-full max-w-3xl mx-auto px-4 text-center">
             <ImageFrame 
               src={imageSrc} 
@@ -121,7 +121,7 @@ const Slide: React.FC<SlideProps> = ({
         className
       )}
     >
-      <div className="slide-content flex flex-col items-center">
+      <div className="slide-content flex flex-col items-center bg-transparent">
         <div className="slide-number text-oldmoney-gold font-montserrat text-sm tracking-wider mb-2">
           {number < 10 ? `0${number}` : number}
         </div>
